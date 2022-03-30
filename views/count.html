@@ -83,7 +83,7 @@ body {
     <script>
         $(document).ready(function() {
             const route = window.location.href.split('/').pop();
-            $('#short').html(`The following link localhost:8000/${route} is visited by`)
+            $('#short').html(`The following link Short-Karo/${route} is visited by`)
             $.ajax({
                 url: '/analytics',
                 data: {
