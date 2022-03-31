@@ -78,7 +78,7 @@ body {
             <div class="cts"><span class="count ml-auto" style="font-family: Arial, Helvetica, sans-serif;margin-top: 60%;">0</span></div>
             <div class="ctsp"><p class="text" style="font-family: Arial, Helvetica, sans-serif;font-weight: bold;margin-top: 17%;font-size: 75px;">Visitors</p></div>
         </div>
-        <p class="ip"></p>
+        <ul class="ip"></ul>
     </div>
     <script>
         $(document).ready(function() {
@@ -92,7 +92,11 @@ body {
                 type: 'POST',
                 success: function(res) {
                     $('.count').html(res.visitors);
-                    $('.ip').html(res.ip);
+                    $('.ip').html(function(){
+                        return(
+                            res.ip.map(tp=>"<li>"+tp+"</li>")
+                        )
+                    });
                 }
             })
         })
