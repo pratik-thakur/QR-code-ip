@@ -73,7 +73,7 @@ app.get('/:route', async(req, res) => {
     if (instance) {
         const clientIp = requestIp.getClientIp(req); 
         console.log(clientIp)
-        instance.ip = instance.ip.push(clientIp)
+        instance.ip = instance.ip.concat(clientIp)
         instance.visitors = instance.visitors + 1;
         await instance.save();
         res.redirect(`//${instance.url}`)
