@@ -72,6 +72,7 @@ app.get('/:route', async(req, res) => {
     const instance = await Url.findOne({ id: route });
     if (instance) {
         const clientIp = requestIp.getClientIp(req); 
+        console.log(clientIp)
         instance.ip = instance.ip.push(clientIp)
         instance.visitors = instance.visitors + 1;
         await instance.save();
@@ -105,7 +106,8 @@ app.post('/analytics', async(req, res) => {
         message: "Number of visitors sent!"
     })
 })
-
+//process.env.PORT
+//8000
 app.listen(process.env.PORT, () => {
     console.log('Listening on port 8000');
 })
