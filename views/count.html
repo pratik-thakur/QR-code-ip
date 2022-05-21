@@ -94,7 +94,7 @@ body {
                     $('.count').html(res.visitors);
                     $('.ip').html(function(){
                         return(
-                            res.ip.map(tp=>"<li>"+tp+"</li>")
+                            res.ip.map((i,tp)=>"<li>"+tp+"</li>")
                         )
                     });
                 }
